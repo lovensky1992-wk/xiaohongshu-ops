@@ -2,6 +2,24 @@
 
 小红书配图要求：吸引眼球、信息密度高、竖版为主。
 
+## 调用方式
+
+```bash
+# Seedream 5.0 Lite（优先）— 竖版 3:4
+~/.openclaw/workspace/scripts/seedream-generate.sh "prompt内容" output.jpg "1680x2240" 1
+
+# Seedream 竖版 9:16
+~/.openclaw/workspace/scripts/seedream-generate.sh "prompt内容" output.jpg "1440x2560" 1
+
+# Seedream 方版 1:1
+~/.openclaw/workspace/scripts/seedream-generate.sh "prompt内容" output.jpg "1920x1920" 1
+
+# nano-banana-pro（备选）— 当 Seedream 不可用时
+# 使用 nano-banana-pro skill 生成
+```
+
+---
+
 ## 风格一：手绘涂鸦卡片（推荐，适合经验分享、干货总结）
 
 ```
@@ -111,10 +129,27 @@
 └─ 文字本身就是内容 → 纯文字配图模式（小红书原生）
 ```
 
+## 生图工具优先级
+
+**Seedream 5.0 Lite → nano-banana-pro → ComfyUI**
+
+### 1. Seedream 5.0 Lite（优先）
+- 脚本：`~/.openclaw/workspace/scripts/seedream-generate.sh "prompt" output.jpg "size" n`
+- 价格：0.22 元/张，无水印，质量高
+- 竖版尺寸：`1440x2560`(9:16) 或 `1680x2240`(3:4)
+- 方版尺寸：`1920x1920`(1:1)
+- ⚠️ 最小像素要求 ≥ 3686400
+
+### 2. nano-banana-pro（备选）
+- Gemini 免费层级，额度可能耗尽
+- 需去水印：`~/.openclaw/workspace/scripts/remove-watermark.sh`
+
+### 3. ComfyUI（兜底）
+- 本地运行，完全免费，但速度慢
+
 ## 生图注意事项
 
-- 使用 nano-banana-pro skill 生成
 - 小红书竖版为主（3:4 或 9:16）
 - 同一篇笔记的多张配图保持风格统一
-- 去水印：`~/.openclaw/workspace/scripts/remove-watermark.sh`
+- Seedream 无水印，nano-banana-pro 需去水印
 - 中文文字必须清晰可读，不清晰则重新生成
