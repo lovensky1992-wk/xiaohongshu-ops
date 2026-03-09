@@ -1,6 +1,17 @@
 ---
 name: xiaohongshu-ops
-description: "End-to-end Xiaohongshu operations including positioning, topic research, content production, publish execution, and post-incident recovery. Reusable across verticals with templates and a concrete 陪你看剧 case preset."
+description: >
+  小红书端到端运营：账号定位、选题研究、内容生产、发布执行、数据复盘。
+  Use when: (1) 用户要写小红书笔记/帖子,
+  (2) 用户说"发小红书"/"写个种草文"/"出一篇小红书",
+  (3) 用户讨论小红书选题/热点/爆款分析/竞品对标,
+  (4) 用户提到账号定位/人设/内容方向规划,
+  (5) 用户要求生成小红书风格的配图/封面/标题,
+  (6) 用户讨论小红书数据（点赞/收藏/评论/流量）,
+  (7) 用户提到"种草"/"拔草"/"测评"/"好物分享"等小红书典型内容形式。
+  即使用户没有明确说"小红书"，只要涉及生活方式类短图文内容创作、
+  种草测评类写作、或社交电商内容运营，都应使用此技能。
+  支持多垂类复用，内置陪你看剧案例模板。
 ---
 
 # Openclaw 小红书运营技能（通用版）
