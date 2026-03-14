@@ -110,6 +110,8 @@ description: >
 - 话题（5-8 个）
 - 风险标注（是否剧透 / 引战边界 / 版权风险）
 
+**定稿后必须执行**：对照 `references/anti-ai-checklist.md` 逐条检查，降 AI 味 + 注入灵魂。
+
 ## 5) 通用发布链路（不发稿）
 
 详细发布执行路径请直接按 `references/xhs-publish-flows.md` 执行，避免重复维护。
