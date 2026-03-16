@@ -1,5 +1,6 @@
 ---
 name: xiaohongshu-ops
+version: 1.0.0
 description: >
   小红书端到端运营：账号定位、选题研究、内容生产、发布执行、数据复盘。
   Use when: (1) 用户要写小红书笔记/帖子,

@@ -6,13 +6,13 @@
 
 ```bash
 # Seedream 5.0 Lite（优先）— 竖版 3:4
-~/.openclaw/workspace/scripts/seedream-generate.sh "prompt内容" output.jpg "1680x2240" 1
+<WORKSPACE>/scripts/seedream-generate.sh "prompt内容" output.jpg "1680x2240" 1
 
 # Seedream 竖版 9:16
-~/.openclaw/workspace/scripts/seedream-generate.sh "prompt内容" output.jpg "1440x2560" 1
+<WORKSPACE>/scripts/seedream-generate.sh "prompt内容" output.jpg "1440x2560" 1
 
 # Seedream 方版 1:1
-~/.openclaw/workspace/scripts/seedream-generate.sh "prompt内容" output.jpg "1920x1920" 1
+<WORKSPACE>/scripts/seedream-generate.sh "prompt内容" output.jpg "1920x1920" 1
 
 # nano-banana-pro（备选）— 当 Seedream 不可用时
 # 使用 nano-banana-pro skill 生成
@@ -97,7 +97,7 @@
 
 ### 处理流程
 1. 实际操作截图
-2. 用 `~/.openclaw/workspace/scripts/beautify-screenshot.sh` 美化
+2. 用 `<WORKSPACE>/scripts/beautify-screenshot.sh` 美化
 3. 需要标注时，用圆圈/箭头/文字标注重点区域
 
 ### 适用场景
@@ -134,7 +134,7 @@
 **Seedream 5.0 Lite → nano-banana-pro → ComfyUI**
 
 ### 1. Seedream 5.0 Lite（优先）
-- 脚本：`~/.openclaw/workspace/scripts/seedream-generate.sh "prompt" output.jpg "size" n`
+- 脚本：`<WORKSPACE>/scripts/seedream-generate.sh "prompt" output.jpg "size" n`
 - 价格：0.22 元/张，无水印，质量高
 - 竖版尺寸：`1440x2560`(9:16) 或 `1680x2240`(3:4)
 - 方版尺寸：`1920x1920`(1:1)
@@ -142,7 +142,7 @@
 
 ### 2. nano-banana-pro（备选）
 - Gemini 免费层级，额度可能耗尽
-- 需去水印：`~/.openclaw/workspace/scripts/remove-watermark.sh`
+- 需去水印：`<WORKSPACE>/scripts/remove-watermark.sh`
 
 ### 3. ComfyUI（兜底）
 - 本地运行，完全免费，但速度慢
