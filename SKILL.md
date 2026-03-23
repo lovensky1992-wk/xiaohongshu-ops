@@ -14,7 +14,7 @@ description: >
   种草测评类写作、或社交电商内容运营，都应使用此技能。
   支持多垂类复用，内置陪你看剧案例模板。
   NOT for: 公众号文章发布（用 wemp-ops）、纯内部文档（用 internal-comms）、
-  图片生成本身（用 nano-banana-pro 或 seedream）。
+  图片生成本身（用 Gemini 生图 或 Seedream）。
 ---
 
 # Openclaw 小红书运营技能（通用版）
