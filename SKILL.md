@@ -200,6 +200,32 @@ description: >
 
 详细字段定义与模板见 `references/xhs-knowledge-base.md`（如已同步）。
 
+## 6.8) 风格学习采集
+
+**内容产出完成后自动执行，不需要老板操作。**
+
+在 §4 内容模板产出定稿后，自动记录 AI 原稿：
+```bash
+python3 <WORKSPACE>/scripts/style-observe.py record-original <笔记文件> --skill xiaohongshu-ops --topic "选题关键词"
+```
+
+当老板确认最终版（可能经过修改）后，记录最终版：
+```bash
+python3 <WORKSPACE>/scripts/style-observe.py record-final <最终版文件> --skill xiaohongshu-ops
+```
+
+**触发 record-final 的信号**：
+- 老板说"可以了"/"这版OK"/"发吧"
+- 老板手动修改后把最终版发回来
+- 笔记已发布
+
+**无修改直接发布也要 record-final**（no_change = 正反馈）。
+
+积累 5+ 对 diff 后可提取风格规则：
+```bash
+python3 <WORKSPACE>/scripts/style-observe.py pairs --skill xiaohongshu-ops --days 30
+```
+
 ## 7) 失败与修复（必须遵循）
 
 - 自动化失败先重试一次（同策略）
