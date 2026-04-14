@@ -2,49 +2,49 @@
 
 小红书配图要求:吸引眼球、信息密度高、竖版为主。
 
-> **配图工作流**：内容分析(`content-analysis.md`)→ 选预设(`presets.md`)→ 选布局(`layouts.md`)→ **查兼容矩阵**（下方）→ 设计 Swipe Flow(`swipe-flow.md`)→ 评估 Hook(`hook-analysis.md`)→ 用下方风格模板生成 prompt
+> **配图工作流**:内容分析(`content-analysis.md`)→ 选预设(`presets.md`)→ 选布局(`layouts.md`)→ **查兼容矩阵**(下方)→ 设计 Swipe Flow(`swipe-flow.md`)→ 评估 Hook(`hook-analysis.md`)→ 用下方风格模板生成 prompt
 
-> **⚠️ 安全区**：所有配图必须遵守 `layouts.md` 中的安全区规范。底部 10% 不放关键信息，右上角避开互动按钮区。每个 prompt 末尾追加安全区指令。
+> **⚠️ 安全区**:所有配图必须遵守 `layouts.md` 中的安全区规范。底部 10% 不放关键信息,右上角避开互动按钮区。每个 prompt 末尾追加安全区指令。
 
 ---
 
 ## 风格 × 布局 兼容矩阵
 
-选定风格和布局后，必须查此矩阵确认组合合理。有 ✗ 的组合会导致风格特征和布局结构冲突，出来效果差。
+选定风格和布局后,必须查此矩阵确认组合合理。有 ✗ 的组合会导致风格特征和布局结构冲突,出来效果差。
 
 | 风格 \ 布局 | sparse | balanced | dense | list | comparison | flow | mindmap | quadrant |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| ① 手绘涂鸦 | ✓✓ | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ |
-| ② 科技感 | ✓ | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ |
-| ③ Notion极简 | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓ |
-| ④ 丝网印刷海报 | ✓✓ | ✓ | ✗ | ✗ | ✓✓ | ✗ | ✗ | ✓ |
-| ⑤ 手写笔记 | ✗ | ✓ | ✓✓ | ✓✓ | ✓ | ✓ | ✓ | ✗ |
-| ⑥ 手绘信息图 | ✓ | ✓✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓✓ | ✓ |
-| ⑦ 截图+标注 | ✓ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓✓ | ✗ | ✗ |
+| 1 手绘涂鸦 | ✓✓ | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ |
+| 2 科技感 | ✓ | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ |
+| 3 Notion极简 | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓ |
+| 4 丝网印刷海报 | ✓✓ | ✓ | ✗ | ✗ | ✓✓ | ✗ | ✗ | ✓ |
+| 5 手写笔记 | ✗ | ✓ | ✓✓ | ✓✓ | ✓ | ✓ | ✓ | ✗ |
+| 6 手绘信息图 | ✓ | ✓✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓✓ | ✓ |
+| 7 截图+标注 | ✓ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓✓ | ✗ | ✗ |
 
 > ✓✓ 强推荐 | ✓ 可用 | ✗ 不推荐
 >
-> 核心逻辑：
-> - 丝网印刷海报靠负空间+大色块，密集布局会破坏其视觉张力
-> - 手写笔记风格本身就是密集的，稀疏布局与“学霸笔记”气质冲突
-> - 截图+标注适合线性展示，不适合抽象的脑图/象限布局
+> 核心逻辑:
+> - 丝网印刷海报靠负空间+大色块,密集布局会破坏其视觉张力
+> - 手写笔记风格本身就是密集的,稀疏布局与"学霸笔记"气质冲突
+> - 截图+标注适合线性展示,不适合抽象的脑图/象限布局
 
-**兼容检查**：选定风格+布局后查此矩阵。有 ✗ 则换备选风格或布局。预设（presets.md）已确保其风格+布局组合在 ✓ 以上，可安全使用。
+**兼容检查**:选定风格+布局后查此矩阵。有 ✗ 则换备选风格或布局。预设(presets.md)已确保其风格+布局组合在 ✓ 以上,可安全使用。
 
 ## 调用方式
 
 ```bash
-# Seedream 5.0 Lite(优先)- 竖版 3:4
+# idealab Chat API(首选,团队AK,免费无额度压力)
+<WORKSPACE>/scripts/generate-image.sh "prompt内容" output.jpg
+# 默认模型 gemini-3.1-flash-image-preview,~25s/张
+# 竖版 3:4: --ar 3:4
+# 竖版 9:16: --ar 9:16
+# 方版 1:1: --ar 1:1
+
+# Seedream 5.0 Lite(降级,idealab 不可用时)
 <WORKSPACE>/scripts/seedream-generate.sh "prompt内容" output.jpg "1680x2240" 1
 
-# Seedream 竖版 9:16
-<WORKSPACE>/scripts/seedream-generate.sh "prompt内容" output.jpg "1440x2560" 1
-
-# Seedream 方版 1:1
-<WORKSPACE>/scripts/seedream-generate.sh "prompt内容" output.jpg "1920x1920" 1
-
-# nano-banana-pro(备选)- 当 Seedream 不可用时
-# 使用 nano-banana-pro skill 生成
+# ComfyUI(兜底)
 ```
 
 ---
@@ -340,21 +340,24 @@ Composition rules for Xiaohongshu cover (vertical 3:4):
 
 ## 生图工具优先级
 
-**Seedream 5.0 Lite → nano-banana-pro → ComfyUI**
+**idealab Chat API → Seedream 5.0 Lite → ComfyUI**
 
-### 1. Seedream 5.0 Lite(优先)
-- 脚本:`<WORKSPACE>/scripts/seedream-generate.sh "prompt" output.jpg "size" n`
-- 价格:0.22 元/张,无水印,质量高
-- 竖版尺寸:`1440x2560`(9:16) 或 `1680x2240`(3:4)
-- 方版尺寸:`1920x1920`(1:1)
+### 1. idealab Chat API（首选）
+- 脚本: `<WORKSPACE>/scripts/generate-image.sh "prompt" output.jpg`
+- 团队 AK，免费无额度压力，~25s/张
+- 默认模型: `gemini-3.1-flash-image-preview`
+- 可选: `gemini-2.5-flash-image`（更快 ~10s）、`gemini-3-pro-image-preview`（最高质量）
+- ℹ️ 生成后自动去水印
+
+### 2. Seedream 5.0 Lite（降级）
+- 脚本: `<WORKSPACE>/scripts/seedream-generate.sh "prompt" output.jpg "size" n`
+- 0.22 元/张，idealab 不可用时才用
+- 竖版尺寸: `1440x2560`(9:16) 或 `1680x2240`(3:4)
+- 方版尺寸: `1920x1920`(1:1)
 - ⚠️ 最小像素要求 ≥ 3686400
 
-### 2. nano-banana-pro(备选)
-- Gemini 免费层级,额度可能耗尽
-- 需去水印:`<WORKSPACE>/scripts/remove-watermark.sh`
-
-### 3. ComfyUI(兜底)
-- 本地运行,完全免费,但速度慢
+### 3. ComfyUI（兜底）
+- 本地运行，完全免费，但速度慢
 
 ## 生图注意事项
 
@@ -387,15 +390,15 @@ Maintain visual consistency with the first image in this series:
 **核心原则:第一张图不带 ref,后续所有图以第一张为 ref 锚点。** 这样确保角色/配色/笔触跨整个系列一致。
 
 ```bash
-# Image 1:不带 ref,建立视觉锚点
-<WORKSPACE>/scripts/seedream-generate.sh "prompt" img-01.jpg "1680x2240" 1
-# 或用 nano-banana-pro :
-# generate-image.sh "prompt" img-01.jpg --ar 3:4 --quality 2k
+# Image 1:不带 ref，建立视觉锚点
+<WORKSPACE>/scripts/generate-image.sh "prompt" img-01.jpg
 
 # Image 2+:所有后续图传入 Image 1 作为 ref
-<WORKSPACE>/scripts/seedream-generate.sh "prompt" img-02.jpg "1680x2240" 1 --ref img-01.jpg
-# 或用 nano-banana-pro :
-# generate-image.sh "prompt" img-02.jpg --ar 3:4 --quality 2k --ref img-01.jpg
+<WORKSPACE>/scripts/generate-image.sh "prompt" img-02.jpg --ref img-01.jpg
+
+# 降级（idealab 不可用时）:
+# <WORKSPACE>/scripts/seedream-generate.sh "prompt" img-01.jpg "1680x2240" 1
+# <WORKSPACE>/scripts/seedream-generate.sh "prompt" img-02.jpg "1680x2240" 1 --ref img-01.jpg
 ```
 
 **注意**:
