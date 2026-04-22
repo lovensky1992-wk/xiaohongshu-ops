@@ -39,7 +39,7 @@ description: >
 - `快照`：用于验证页面状态的关键证据快照
 - `回放`：流程失败后重试或改道执行
 
-## 0) 启动与环境校验（所有任务都遵循）
+## §0 启动与环境校验（所有任务都遵循）
 
 执行前先按 `references/xhs-runtime-rules.md` 中"运行规则"执行，优先遵循失败可复用顺序。
 
@@ -47,7 +47,7 @@ description: >
 - 以 `evaluate` 为先，关键节点少量 `snapshot`，单步动作最多重试一次。
 - 失败后保留已获结果，切稳健路径并汇报。
 
-## 1) 技能默认行为（所有任务都遵循）
+## §1 技能默认行为（所有任务都遵循）
 
 - **开始新任务前先读 `knowledge-base/README.md`**，检索历史记录，避免重复试错。
 - **先读本技能目录下的 `persona.md`**（小红书平台专用人设/语气/发布与回复风格）。所有对外文案（发帖/评论回复/私信话术）都必须遵循。
@@ -55,7 +55,7 @@ description: >
 - 语言优先"能对话"而不是"写报告"：短句、口语、站位明确、可引导评论
 - 所有输出默认保留"可追问点"，用于评论区继续延展
 
-## 2) 账号定位（可复用）
+## §2 账号定位（可复用）
 
 每个账号先确认 4 个变量：
 
@@ -71,7 +71,7 @@ description: >
 - 口头禅/固定句式（2-3 个）
 - 不能碰底线（红线）清单（剧透、人身攻击、虚假承诺）
 
-## 2.5) 账号分析
+## §2.5 账号分析
 
 对账号做五维体检评分，判断"现在处在什么位置、下一步优先改什么"。
 
@@ -81,7 +81,7 @@ description: >
 **详细方法：** `references/xhs-account-analysis.md`
 **沉淀去向：** 体检结论写入 `knowledge-base/accounts/YYYY-MM-DD-{账号名}-checkup.md`
 
-## 3) 通用选题与对标流程
+## §3 通用选题与对标流程
 
 ### §3.1 首页推荐流分析
 
@@ -93,7 +93,7 @@ description: >
 **输出格式：** 首页画像 / 高信号样本 / 可复用模式 / 下步动作
 **沉淀去向：** 分析结果写入 `knowledge-base/patterns/YYYY-MM-DD-feed-patterns.md`
 
-### A. 平台侧抓取信号（可并行）
+### §3.A 平台侧抓取信号（可并行）
 
 1. 先在小红书抓同题材高互动内容（点赞/收藏/评论高于近期平均值）
 2. 记录可复用字段：`title`, `hook`, `angle`, `结构标签`, `评论信号`, `互动CTA`, `标签组`
@@ -101,13 +101,13 @@ description: >
 
 **⚠️ 中间存盘规则**：每 2-3 轮搜索/抓取后，立刻把已获得的高互动样本和关键发现写到 `<WORKSPACE>/temp/xhs-findings-{topic}.md`，防止连续采集时前面的信息被挤掉。采集完成后此文件可删除。
 
-### B. 需求侧补充信号（行业/场景）
+### §3.B 需求侧补充信号（行业/场景）
 
 1. 按主题去主流平台/社媒抓"评论区观点分歧"
 2. 抽取支持/反对/中性观点各一组
 3. 输出可发文争论点（争议但可控）
 
-### C. 形成选题清单（每轮至少 3 条）
+### §3.C 形成选题清单（每轮至少 3 条）
 
 每条选题包含：
 
@@ -117,7 +117,7 @@ description: >
 - 证据来源（哪组高互动数据）
 - 风险提示（是否容易踩线）
 
-## 3.5) 搜索并浏览（新增操作类型）
+## §3.5 搜索并浏览
 
 按 `references/xhs-runtime-rules.md` 的搜索与评论入口章节执行。
 
@@ -125,14 +125,14 @@ description: >
 - 优先通知/回复场景前先对位校验。
 - 连续失败回退策略见引用文件。
 
-## 3.8) 素材交接检查
+## §3.8 素材交接检查
 
 内容生产前，检查 `<WORKSPACE>/temp/handoffs/collector-to-writing.md` 是否存在：
 - 有 → 读取，筛选与当前选题相关的素材条目，纳入写作参考
 - 消费后删除已使用的条目（如果文件清空则删除文件）
 - 没有 → 跳过，正常流程
 
-## 3.9) 对标颗粒度检查表
+## §3.9 对标颗粒度检查表
 
 找到对标账号后，逐维度对比一致性。**每一个不一致都要解释为什么不一致，解释不了就改成一致。**
 
@@ -166,7 +166,7 @@ description: >
 
 ---
 
-## 4) 通用内容模板（小红书）
+## §4 通用内容模板（小红书）
 
 ### §4.1 构思卡片（写之前必出，老板确认后再动笔）
 
@@ -214,6 +214,9 @@ description: >
 3. **预设选择** → 根据 `references/presets.md` 的信号匹配表自动推荐
 4. **Swipe Flow 设计** → 每张图的位置、布局、内容、图间钩子（见 `references/swipe-flow.md`）
 5. **生成配图** → 结构化 Prompt 组装 + Reference Image Chain（见 `references/illustration-prompts.md`）
+   - idealab（首选）: `<WORKSPACE>/scripts/generate-image.sh --prompt "prompt" --filename output.jpg --size 1920x2560`
+   - Seedream（降级）: `<WORKSPACE>/scripts/seedream-generate.sh "prompt" output.jpg "1920x2560"`
+   - 🔴 所有 AI 生图必须去水印：`python3 <WORKSPACE>/scripts/remove-ai-watermark.py output.jpg`
 
 **关键原则**：
 - 配色覆盖可只换颜色不换风格（见 `references/presets.md` 配色覆盖节）
@@ -233,7 +236,7 @@ Anti-AI checklist 通过后，再过一遍内容质量自检。任何一项 ❌ 
 | **认知落差** | 读者看完会觉得「这个我知道」吗？ | 至少 1 个「没想到」的点或具体数据 | ✅/❌ |
 | **封面竞争力** | 封面在信息流中能不能抢到注意力？ | 有视觉冲击 + 信息传递，不是纯装饰 | ✅/❌ |
 
-## 5) 通用发布链路（不发稿）
+## §5 通用发布链路（不发稿）
 
 详细发布执行路径请直接按 `references/xhs-publish-flows.md` 执行，避免重复维护。
 
@@ -259,7 +262,7 @@ Anti-AI checklist 通过后，再过一遍内容质量自检。任何一项 ❌ 
 - 到达"发布"按钮可见处停手，默认不直接点击发布。
 - 若涉及截图确认，优先附件形式发送到飞书，并在用户确认后再发布。
 
-## 6) 评论与回复（轻量）
+## §6 评论与回复（轻量）
 
 评论检查与回复统一遵循 `references/xhs-comment-ops.md`，并结合 `examples/reply-examples.md` 作文案风格。
 
@@ -267,7 +270,7 @@ Anti-AI checklist 通过后，再过一遍内容质量自检。任何一项 ❌ 
 - 默认 one-send-per-turn（如无明确要求不连发）。
 - 长度、隐性承诺、风控停损点等风险控制项请以引用文件为准。
 
-## 6.5) 知识库沉淀
+## §6.5 知识库沉淀
 
 完成每次分析/发布/回复/复盘后，主动写入知识库（路径：`knowledge-base/`）。
 
@@ -286,9 +289,9 @@ Anti-AI checklist 通过后，再过一遍内容质量自检。任何一项 ❌ 
 
 **写入失败降级：** 先完成用户任务，结束后把结构化摘要追加到 `knowledge-base/README.md` 的"待整理"区域，不阻塞主流程。
 
-详细字段定义与模板见 `references/xhs-knowledge-base.md`（如已同步）。
+<!-- 知识库模板字段定义随 knowledge-base/README.md 维护 -->
 
-## 6.8) 风格学习采集
+## §6.8 风格学习采集
 
 **内容产出完成后自动执行，不需要老板操作。**
 
@@ -314,37 +317,26 @@ python3 <WORKSPACE>/scripts/style-observe.py record-final <最终版文件> --sk
 python3 <WORKSPACE>/scripts/style-observe.py pairs --skill xiaohongshu-ops --days 30
 ```
 
-## 7) 失败与修复（必须遵循）
+## §7 失败与修复（必须遵循）
 
 - 自动化失败先重试一次（同策略）
 - 仍失败则改道：换到"更稳妥同义路径"
 - 不做无效重复动作；保留当前进度可复用，报告一次用户需手动的单一动作
 
-## 8) 通用提取示例（Evaluate）
+## §8 通用提取示例（Evaluate）
 
 通用字段提取脚本示例见 `references/xhs-eval-patterns.md`。
 
-## 9) 具体案例：陪你看剧（保留为特例）
-### 使用方式
+## §9 垂类案例
 
-本技能主文件保留通用框架；垂直行业经验放在 `examples/` 目录，按内容类型选用：
+垂直行业经验放在 `examples/` 目录，先按通用流程跑，再加载对应案例补齐行业特殊动作。
 
-- 先按《通用流程》跑一遍
-- 再加载对应案例文件补齐行业特殊动作
-
-当前已可用案例：
-
-- `examples/drama-watch/case.md`（陪你看剧账号）
-
-每个内容类型按目录组织，文件命名可为：
-
-- `examples/<vertical>/<vertical>.md`（推荐）
-- 或 `examples/<vertical>/README.md`
-
-
-- `examples/lifestyle/`（待补充）
-- `examples/cosmetics/`（待补充）
-- `examples/fitness/`（待补充）
+| 垂类 | 路径 | 状态 |
+|------|------|------|
+| 陪你看剧 | `examples/drama-watch/case.md` | ✅ 可用 |
+| lifestyle | `examples/lifestyle/` | 待补充 |
+| cosmetics | `examples/cosmetics/` | 待补充 |
+| fitness | `examples/fitness/` | 待补充 |
 
 ---
 
