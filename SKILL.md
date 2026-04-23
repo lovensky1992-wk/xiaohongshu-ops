@@ -262,6 +262,20 @@ Anti-AI checklist 通过后，再过一遍内容质量自检。任何一项 ❌ 
 - 到达"发布"按钮可见处停手，默认不直接点击发布。
 - 若涉及截图确认，优先附件形式发送到飞书，并在用户确认后再发布。
 
+### 🔴 Final: 机械验证（不可跳过）
+
+交付文案+配图前运行：
+```bash
+bash scripts/skill-verify.sh xiaohongshu-ops <text-file> <image-dir>
+# 例: bash scripts/skill-verify.sh xiaohongshu-ops temp/xhs/text.md temp/xhs/images/
+```
+- `<text-file>` = 文案文件路径
+- `<image-dir>` = 配图目录路径
+- ✅ ALL PASSED → 回复用户
+- ❌ FAILED → 按输出补齐缺失项（去水印/anti-AI checklist 等），重新验证直到通过
+
+绝不在验证未通过时回复用户"已完成"。
+
 ## §6 评论与回复（轻量）
 
 评论检查与回复统一遵循 `references/xhs-comment-ops.md`，并结合 `examples/reply-examples.md` 作文案风格。
