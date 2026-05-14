@@ -21,6 +21,10 @@
 | 5 手写笔记 | ✗ | ✓ | ✓✓ | ✓✓ | ✓ | ✓ | ✓ | ✗ |
 | 6 手绘信息图 | ✓ | ✓✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓✓ | ✓ |
 | 7 截图+标注 | ✓ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓✓ | ✗ | ✗ |
+| 8 杂志封面 | ✓✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| 9 拼贴剪报 | ✓✓ | ✓✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| 10 复古插画 | ✓✓ | ✓✓ | ✓ | ✓ | ✗ | ✓ | ✗ | ✗ |
+| 11 黑板粉笔 | ✓✓ | ✓ | ✓✓ | ✓✓ | ✗ | ✓ | ✓ | ✗ |
 
 > ✓✓ 强推荐 | ✓ 可用 | ✗ 不推荐
 >
@@ -260,19 +264,21 @@
 - 封面固定用 `sparse` 布局:大字标题 + 一个视觉焦点
 - 标题必须通过 Hook 评估(≥ 4 星,详见 `hook-analysis.md`)
 
-#### 封面图五维度体系(融合 baoyu-cover-image,竖版适配)
+#### 封面图七维度体系（升级版，融合 Art Reference）
 
-封面图用五维度结构化选择,保证风格可复现、品牌一致:
+封面图用七维度结构化选择 + 可选 Art Reference，保证风格可复现、品牌一致、视觉有爆发力：
 
 | 维度 | 小红书常用选项 | 默认 |
 |------|--------------|------|
 | **Type** | `typography`(大字报)、`hero`(视觉冲击)、`minimal`(极简) | typography |
-| **Palette** | `warm`(莫兰迪)、`mono`(黑白)、`vivid`(鲜艳)、`macaron`(马卡龙) | warm |
-| **Rendering** | `hand-drawn`(手绘)、`flat-vector`(扁平)、`screen-print`(丝印) | hand-drawn |
+| **Palette** | `warm`(莫兰迪)、`mono`(黑白)、`macaron`(马卡龙)、`kraft`(牛皮纸)、`ink-blue`(蓝墨水)、`pop-candy`(波普糖果)、`forest`(森林) | warm |
+| **Rendering** | `hand-drawn`(手绘)、`flat-vector`(扁平)、`screen-print`(丝印)、`magazine`(杂志)、`collage-zine`(拼贴)、`retro-illustration`(复古插画)、`chalkboard`(黑板粉笔) | hand-drawn |
 | **Text** | `title-only`、`text-rich`(多要点) | title-only |
-| **Mood** | `bold`(信息流抢眼)、`balanced` | bold |
+| **Mood** | `bold`(信息流抢眼)、`balanced`、`subtle`(克制) | bold |
+| **Font** | `casual`(随意手写)、`bold-sans`(粗黑体)、`serif`(衬线)、`display`(装饰体) | bold-sans |
+| **Layout** | `top-title`(标题在上)、`center-title`(标题居中)、`split-vertical`(上下分区) | top-title |
 
-**小红书封面预设:**
+**封面预设速查:**
 
 | 预设名 | Type | Palette | Rendering | 适用 |
 |--------|------|---------|-----------|------|
@@ -280,17 +286,68 @@
 | `xhs-bold` | typography | mono | screen-print | 观点/爬坑 |
 | `xhs-cute` | minimal | macaron | flat-vector | 生活/好物 |
 | `xhs-tech` | hero | vivid | flat-vector | AI/产品测评 |
+| `xhs-magazine` | typography | ink-blue | magazine | 深度长文/收藏型 |
+| `xhs-collage` | typography | kraft | collage-zine | 经验分享/避坑/真实故事 |
+| `xhs-retro` | hero | kraft | retro-illustration | 科普/概念解释/教程 |
+| `xhs-chalk` | typography | 默认(暗底) | chalkboard | 教程/框架/知识体系 |
+| `xhs-pop` | typography | pop-candy | screen-print | 争议观点/颠覆认知 |
+| `xhs-zen` | minimal | forest | hand-drawn | 成长感悟/反思/慢节奏 |
+
+#### 可选层：Art Reference（艺术锚点，小红书版）
+
+Art Reference 是叠加在七维度之上的可选层。小红书比公众号**更鼓励使用**——信息流竞争激烈，差异化是核心竞争力。
+
+**小红书 Art Reference 使用规则：**
+1. 名画元素可以**更大胆**——占 30-50% 画面（公众号只作背景层）
+2. 但**标题仍然是第一视觉**——Art Reference 不能抢标题注意力
+3. 缩略图检验：在 180px 宽的缩略图下，标题+风格都可辨认
+4. 触发条件：内容有“打破常规”、“颠覆认知”、“文化”、“深度”属性时
+
+| Reference ID | 艺术锚点 | 竖版用法 | 推荐搭配 |
+|---|---|---|---|
+| `ukiyo-wave` | 浮世绘浪花 | 浪花从底部涌起，标题在上半部留白处 | retro-illustration + ink-blue |
+| `pop-dots` | 利希滤斯坦 波普点阵 | Ben-Day dots 背景 + 对话气泡式标题 | screen-print + pop-candy |
+| `song-ink` | 宋代写意水墨 | 大面积留白，角落水墨意境，标题居中 | hand-drawn + forest |
+| `matisse-cut` | 马蒂斯剪纸 | 有机曲线色块作为标题背景/装饰 | collage-zine + macaron |
+| `vintage-ad` | 复古广告海报 | 粗犷排版 + 插画人物 + 产品展示构图 | retro-illustration + kraft |
+| `blueprint` | 蓝图/工程图纸 | 蓝底白线网格 + 标注箭头 + 技术图感 | flat-vector + ink-blue |
 
 **构图约束(封面图 prompt 末尾必附):**
 ```
-Composition rules for Xiaohongshu cover (vertical 3:4):
-- Title text occupies 40%+ area, must be immediately readable at thumbnail size
-- Single visual focal point, generous whitespace (40-60%)
+Composition rules for Xiaohongshu cover (vertical 3:4, 1680×2240):
+- Title text occupies 40%+ area, must be immediately readable at 180px thumbnail width
+- Title placement: upper 40-60% of image (eye scans top-down in feed)
+- Single visual focal point below title, generous whitespace (40-60%)
 - NO realistic human faces, use simplified silhouettes or icons
 - Bold high-contrast colors for feed competition
-- Chinese text large, clear, no overlap with visuals
-- Bottom 10% clear (app UI safe zone)
-- Right-top corner clear (interaction buttons)
+- Chinese text large, clear, no overlap with busy visual areas
+- Bottom 10% clear (app UI safe zone, ~224px)
+- Right-top corner 120×120px clear (interaction buttons ❤ 📌)
+- If using Art Reference: element can occupy 30-50% but must NOT compete with title
+- Vertical flow only: all information stacks top-to-bottom, never side-by-side
+```
+
+#### 封面安全区示意图
+
+```
+┌──────────────────────────┐
+│  ←── 右上角留空 ──→  ❤ 📌 │  ← 互动按钮区
+│                          │
+│   ┌──────────────────┐   │
+│   │                  │   │
+│   │    主标题区域     │   │  ← 上半部 40-60%
+│   │  (占40%+面积)    │   │     标题必须在这里
+│   │                  │   │
+│   └──────────────────┘   │
+│                          │
+│   ┌──────────────────┐   │
+│   │  视觉焦点/Art Ref │   │  ← 中下部
+│   │  (单一元素)       │   │
+│   └──────────────────┘   │
+│                          │
+│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│  ← 底部10% 安全区
+└──────────────────────────┘
+     3:4 竖版 (1680×2240)
 ```
 
 ### 正文配图
@@ -454,3 +511,119 @@ Maintain visual consistency with the first image in this series:
 4. 追加安全区指令
 5. Image 2+ 追加一致性指令(文本锚点或 ref 参数)
 6. 保存到 `prompts/NN-{type}-{slug}.md` 后再生成
+
+---
+
+## 风格八:杂志封面(适合深度长文、干货收藏型封面)
+
+```
+高级杂志封面设计。
+竖版 3:4 比例。中文。
+
+排版规则:
+- 大标题占画面上部 35-45%，衬线体或高级无衬线体
+- 标题字号极大，字间距略紧
+- 副标题或标签用细体，与主标题形成极致字号对比（8:1 以上）
+- 大量留白（50%+），呼吸感
+- 单一素雅装饰线（细横线或竖线）分隔标题与副信息
+- 底部可放作者名/日期等 meta 信息（小字）
+
+色彩: 蓝墨水色(#1A3A5F)为主色，素纸白(#F8F6F0)底，朱红(#C8553D)作稀疏强调
+质感: 微妙纸张纹理，无渐变，无阴影，无3D效果
+参考调性: Monocle 杂志 / KINFOLK / 物外设计
+
+内容:[在此描述封面主题]
+```
+
+### 适用场景
+- 深度分析文章封面
+- “值得收藏”型干货
+- 系列文章统一风格
+- 展现专业度和品味
+
+---
+
+## 风格九:拼贴剪报(适合经验分享、避坑、真实故事封面)
+
+```
+手工拼贴剪报风格封面。
+竖版 3:4 比例。中文。
+
+视觉元素:
+- 多层叠加：便签纸、彩色胶带（washi tape）、撕边纸片、贴纸
+- 标题写在便签纸或胶带上，手写体或打字机体
+- 背景是牛皮纸或笔记本纸纹理
+- 装饰：回形针、图钉、手绘箭头、圆圈标注、星星贴纸
+- 错位排列，不对齐，有“手工制作”的随意感
+- 可嵌入一两个简笔画小图标
+
+色彩: 牛皮纸底(#D4A574)，彩色胶带(淡蓝#A8D8EA、淡黄#F8E9B0、淡粉#F8D5C4)
+强调: 复古红(#C0392B)用于关键词高亮
+质感: 纸张纹理、胶带半透明叠加、轻微阴影（贴纸翘起感）
+
+内容:[在此描述封面主题]
+```
+
+### 适用场景
+- “我踩过的坑”经验分享
+- 避坑指南
+- 个人真实故事
+- 生活感/DIY感/亲和力强的内容
+
+---
+
+## 风格十:复古插画(适合科普、概念解释、教程封面)
+
+```
+60-70年代复古教科书插画风格封面。
+竖版 3:4 比例。中文。
+
+视觉特征:
+- 圆润线条、温暖色调、略带颗粒感
+- 人物/物体用简化几何形态，不追求写实
+- 大色块平涂，有限配色(3-4色)
+- 标题用粗体圆角无衬线字体，复古但清晰
+- 可用箭头、数字标注、虚线框做解释性标注
+- 整体感觉“怀旧但不过时”，像一本好看的老教材
+
+色彩: 牛皮纸底(#D4A574)，暖棕(#8B5E3C)勾线，奶油黄(#F5E6D0)填充
+强调: 深蓝(#1A5276)或复古红(#C0392B)做标题和关键信息
+质感: 轻微纸张颗粒，印刷半色调网点，无光泽效果
+
+内容:[在此描述封面主题]
+```
+
+### 适用场景
+- “一张图看懂XXX”科普
+- 概念入门解释
+- 教程/操作指南封面
+- 想传达“易懂”、“友好”、“有趣学习”的调性
+
+---
+
+## 风格十一:黑板粉笔(适合教程、知识体系、框架型封面)
+
+```
+深色黑板 + 粉笔手写风格封面。
+竖版 3:4 比例。中文。
+
+视觉特征:
+- 深绿/深灰黑板背景(#2D3436 或 #1B4332)
+- 白色粉笔(#F5F5F5)写标题，笔触有粗细变化
+- 彩色粉笔做强调：黄色(#FBBF24)、天蓝(#60A5FA)、粉色(#F472B6)
+- 可画简单框图、箭头、下划线、圆圈标注
+- 标题大而粗，有“老师板书”的随意感
+- 底部可有粉笔灰/擦除痕迹增加真实感
+
+色彩: 深色板底，白色为主文字，彩色粉笔做标注和强调（不超过3种彩色）
+质感: 粉笔粗糙笔触、板面微弱反光、粉尘颗粒
+参考调性: 学校黑板报 / 咖啡馆菜单黑板 / TED 演讲白板
+
+内容:[在此描述封面主题]
+```
+
+### 适用场景
+- 教程/教学类
+- 知识框架/体系梳理
+- “全景图”/“知识地图”类内容
+- 传达“老师教你”、“课堂感”的调性

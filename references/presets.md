@@ -17,6 +17,10 @@
 | `macaron` | 暖奶油 #F5F0E8 | 马卡龙蓝 #A8D8EA、薄藤 #D5C6E0、薄荷 #B5E5CF、桃子 #F8D5C4 | 珊瑚红 #E8655A | 柔和、教育感、亲和力 |
 | `warm` | 柔桃 #FFECD2 | 橙 #ED8936、陶土 #C05621、金 #F6AD55、玫瑰 #D4A09A | 赭石 #A0522D | 温暖、大地色、无冷色 |
 | `neon` | 深紫 #1A1025 | 青 #00F5FF、品红 #FF00FF、绿 #39FF14、粉 #FF6EC7 | 黄 #FFFF00 | 高能量、未来感 |
+| `kraft` | 牛皮纸 #D4A574 | 深棕 #5D3A1A、奶白 #F5F0E8 | 复古红 #C0392B + 深蓝 #1A5276 | 牛皮纸/咖啡馆感，温暖有质感 |
+| `ink-blue` | 素纸 #F8F6F0 | 蓝墨 #1A3A5F、淡灰 #E8E4DE | 朱红 #C8553D + 靖青 #2D4A3E | 蓝墨水/信件感，理性但不冷 |
+| `pop-candy` | 纯白 #FFFFFF | 红 #FF1744、黄 #FFEA00、蓝 #2979FF | 黑 #000000 | 波普糖果色，高能量抢眼 |
+| `forest` | 米白 #F5F0E8 | 深绿 #2D4A3E、橄榄绿 #6B8E23 | 陶土橙 #D4956A | 森林/自然色，沉稳但不沉闷 |
 
 **配色使用规则**：
 - 默认不指定配色 → 用风格内置颜色
@@ -67,6 +71,19 @@
 | `sketch-flow` | 手绘信息图（风格六） | flow | macaron | 手绘教程、流程图解 | 「手把手AI Agent搭建全流程」 |
 | `sketch-summary` | 手绘信息图（风格六） | balanced | macaron | 手绘总结、图文笔记 | 「一周AI产品学习手绘笔记」 |
 
+### 封面专属风格类（新增）
+
+> 以下预设专为封面图设计，强调视觉爆发力和信息流差异化。封面图固定用 `sparse` 布局。
+
+| 预设 | 风格 | 布局 | 配色 | Art Ref | 适用场景 | 典型标题 |
+|------|------|------|------|---------|---------|----------|
+| `xhs-magazine` | 杂志封面（风格八） | sparse | ink-blue | — | 深度长文、干货收藏型 | 「2026年AI产品经理生存指南」 |
+| `xhs-collage` | 拼贴剪报（风格九） | sparse | kraft/macaron | matisse-cut | 经验分享、避坑、真实故事 | 「我踩过的5个坑，每个都很痛」 |
+| `xhs-retro` | 复古插画（风格十） | sparse | kraft | vintage-ad | 科普、概念解释、教程类 | 「一张图看懂AI Agent」 |
+| `xhs-chalk` | 黑板粉笔（风格十一） | sparse | 默认(暗底) | — | 教程、框架、知识体系 | 「产品经理AI工具箱全景图」 |
+| `xhs-pop` | 丝网印刷海报（风格四） | sparse | pop-candy | pop-dots | 争议观点、颠覆认知、榜单 | 「99%的PM都在犯这个错」 |
+| `xhs-zen` | 手绘涂鸦（风格一） | sparse | forest | song-ink | 成长感悟、反思、慢节奏 | 「做产品5年，我居然才懂这件事」 |
+
 ---
 
 ## 内容信号 → 自动推荐预设
@@ -97,6 +114,12 @@
 | 手绘、图解、可视化、示意图、workflow | `sketch-card` | `sketch-flow` |
 | 矩阵、分类、SWOT、象限、排列组合 | `swot-matrix` | `vs-compare` |
 | 知识图谱、脑图、全景、发散思维 | `concept-map` | `notion-explainer` |
+| 深度长文、大全、收藏、体系、指南 | `xhs-magazine` | `cover-hook` |
+| 踩坑、避坑、真实、我曾、教训、心酸 | `xhs-collage` | `pm-story` |
+| 一张图看懂、科普、入门、解释、小白 | `xhs-retro` | `sketch-card` |
+| 课堂、教学、老师、知识体系、全景图 | `xhs-chalk` | `knowledge-card` |
+| 争议、颠覆、反直觉、99%的人、大多数人 | `xhs-pop` | `bold-poster` |
+| 感悟、成长、慢、沉淀、反思、局 | `xhs-zen` | `pm-story` |
 
 **混合信号时**：取第一个匹配的推荐预设。
 
