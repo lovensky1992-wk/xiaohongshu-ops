@@ -204,6 +204,10 @@ description: >
 
 **定稿后必须执行**:对照 `references/anti-ai-checklist.md` 逐条检查,降 AI 味 + 注入灵魂。
 
+**机械检查（anti-AI 之后、自检之前）**:
+- **标点一致性**:全文不得出现英文逗号、英文冒号、英文问号、英文感叹号（英文原文/代码内除外）。
+- **英文注释完整性**:所有英文人名首次出现加中文身份；非通识英文术语首次出现加括号中文释义。通识词（AI、App、CEO）不需要注释。
+
 ### §4.3 图卡系列规划(多图笔记必做)
 
 文案定稿后、配图前,必须完成图卡系列规划。流程见 `references/content-analysis.md` 的 §6§7。
@@ -216,7 +220,7 @@ description: >
 5. **生成配图** → 结构化 Prompt 组装 + Reference Image Chain(见 `references/illustration-prompts.md`)
    - idealab(首选): `<WORKSPACE>/scripts/generate-image.sh --prompt "prompt" --filename output.jpg --size 1920x2560`
    - Seedream(降级): `<WORKSPACE>/scripts/seedream-generate.sh "prompt" output.jpg "1920x2560"`
-   - 🔴 所有 AI 生图必须去水印:`python3 <WORKSPACE>/scripts/remove-ai-watermark.py output.jpg`
+   - 🔴 idealab 生图不去水印（本身无水印，去水印反而损坏右下角）；仅 Seedream/Gemini 来源需去水印:`python3 <WORKSPACE>/scripts/remove-ai-watermark.py output.jpg`
 
 **关键原则**:
 - 配色覆盖可只换颜色不换风格(见 `references/presets.md` 配色覆盖节)
