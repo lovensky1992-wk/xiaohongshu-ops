@@ -71,18 +71,26 @@
 | `sketch-flow` | 手绘信息图（风格六） | flow | macaron | 手绘教程、流程图解 | 「手把手AI Agent搭建全流程」 |
 | `sketch-summary` | 手绘信息图（风格六） | balanced | macaron | 手绘总结、图文笔记 | 「一周AI产品学习手绘笔记」 |
 
-### 封面专属风格类（新增）
+### 封面专属风格类（Art Reference 驱动）
 
 > 以下预设专为封面图设计，强调视觉爆发力和信息流差异化。封面图固定用 `sparse` 布局。
+> 🔴 **封面必须选一个 Art Reference 预设**，与正文内容页风格强制不同。
 
 | 预设 | 风格 | 布局 | 配色 | Art Ref | 适用场景 | 典型标题 |
 |------|------|------|------|---------|---------|----------|
-| `xhs-magazine` | 杂志封面（风格八） | sparse | ink-blue | — | 深度长文、干货收藏型 | 「2026年AI产品经理生存指南」 |
+| `xhs-magazine` | 杂志封面（风格八） | sparse | ink-blue | monet-garden | 深度长文、干货收藏型 | 「2026年AI产品经理生存指南」 |
 | `xhs-collage` | 拼贴剪报（风格九） | sparse | kraft/macaron | matisse-cut | 经验分享、避坑、真实故事 | 「我踩过的5个坑，每个都很痛」 |
-| `xhs-retro` | 复古插画（风格十） | sparse | kraft | vintage-ad | 科普、概念解释、教程类 | 「一张图看懂AI Agent」 |
-| `xhs-chalk` | 黑板粉笔（风格十一） | sparse | 默认(暗底) | — | 教程、框架、知识体系 | 「产品经理AI工具箱全景图」 |
-| `xhs-pop` | 丝网印刷海报（风格四） | sparse | pop-candy | pop-dots | 争议观点、颠覆认知、榜单 | 「99%的PM都在犯这个错」 |
-| `xhs-zen` | 手绘涂鸦（风格一） | sparse | forest | song-ink | 成长感悟、反思、慢节奏 | 「做产品5年，我居然才懂这件事」 |
+| `xhs-retro` | 复古插画（风格十） | sparse | kraft | great-wave | 科普、概念解释、教程类 | 「一张图看懂AI Agent」 |
+| `xhs-chalk` | 黑板粉笔（风格十一） | sparse | 默认(暗底) | bauhaus | 教程、框架、知识体系 | 「产品经理AI工具箱全景图」 |
+| `xhs-pop` | 丝网印刷海报（风格四） | sparse | pop-candy | warhol | 争议观点、颠覆认知 | 「99%的PM都在犯这个错」 |
+| `xhs-zen` | 手绘涂鸦（风格一） | sparse | forest | song-dynasty | 成长感悟、反思、慢节奏 | 「做产品5年，我居然才懂这件事」 |
+| `xhs-golden` | 油画厚涂 | sparse | gallery | klimt-gold | 里程碑、重磅发布、成就 | 「从0到1，我的AI产品终于上线了」 |
+| `xhs-neon` | 数字科技 | sparse | neon | cyberpunk | AI/未来/技术极客 | 「GPT-5来了，产品经理怎么办」 |
+| `xhs-rothko` | 色域渗透 | sparse | warm | rothko-field | 情感/深层思考/内省 | 「焦虑背后，是我对自己的期待」 |
+| `xhs-cubist` | 拼贴解构 | sparse | pop-candy | picasso-cubism | 多角度分析、复杂问题 | 「一个问题，5种解法」 |
+| `xhs-loop` | 极简线条 | sparse | ink-blue | escher-loop | 递归/系统循环/反馈 | 「为什么你总是在重复同样的错」 |
+| `xhs-deco` | 数字装饰 | sparse | ink-blue | art-deco | 优雅/规则/高端质感 | 「高级PM的工作法则」 |
+| `xhs-kandinsky` | 抽象几何 | sparse | macaron | kandinsky | 抽象概念/协作/多元素 | 「团队协作的隐藏法则」 |
 
 ---
 
@@ -98,28 +106,35 @@
 
 小红书用「预设」而非原始维度，因为预设已经封装了风格+布局+配色的最佳组合；公众号用「六维度」因为封面图是 AI 生图需要更细粒度控制。两套体系底层逻辑一致：内容信号 → 自动推荐 → 兼容校验 → 生成。
 
-| 内容信号关键词 | 推荐预设 | 备选 |
-|--------------|---------|------|
-| AI工具、效率、方法、技巧、干货、推荐 | `knowledge-card` | `checklist` |
-| 排行、Top N、必备、清单、避坑、注意 | `checklist` | `knowledge-card` |
-| 步骤、教程、流程、先…再…然后、第一步 | `step-guide` | — |
-| AI趋势、产品分析、行业、技术、架构 | `tech-insight` | `tech-dense` |
-| vs、对比、区别、优劣、before/after | `vs-compare` | — |
-| 拆解、全解析、完全指南、深度 | `tech-dense` | `knowledge-card` |
-| 我、经历、故事、复盘、成长、感悟 | `pm-story` | — |
-| 金句、一句话、声明、重磅 | `cover-hook` | — |
-| 概念、科普、原理、解释、SaaS | `notion-explainer` | `knowledge-card` |
-| 观点、影评、书评、海报、声明 | `bold-poster` | `cover-hook` |
-| 笔记、框架、知识体系、学霸、考试 | `study-notes` | `knowledge-card` |
-| 手绘、图解、可视化、示意图、workflow | `sketch-card` | `sketch-flow` |
-| 矩阵、分类、SWOT、象限、排列组合 | `swot-matrix` | `vs-compare` |
-| 知识图谱、脑图、全景、发散思维 | `concept-map` | `notion-explainer` |
-| 深度长文、大全、收藏、体系、指南 | `xhs-magazine` | `cover-hook` |
-| 踩坑、避坑、真实、我曾、教训、心酸 | `xhs-collage` | `pm-story` |
-| 一张图看懂、科普、入门、解释、小白 | `xhs-retro` | `sketch-card` |
-| 课堂、教学、老师、知识体系、全景图 | `xhs-chalk` | `knowledge-card` |
-| 争议、颠覆、反直觉、99%的人、大多数人 | `xhs-pop` | `bold-poster` |
-| 感悟、成长、慢、沉淀、反思、局 | `xhs-zen` | `pm-story` |
+| 内容信号关键词 | 推荐预设（内容页） | 推荐预设（封面） | 备选 |
+|--------------|---------|---------|------|
+| AI工具、效率、方法、技巧、干货、推荐 | `knowledge-card` | `xhs-neon` | `xhs-chalk` |
+| 排行、Top N、必备、清单、避坑、注意 | `checklist` | `xhs-pop` | `xhs-collage` |
+| 步骤、教程、流程、先…再…然后、第一步 | `step-guide` | `xhs-chalk` | `xhs-retro` |
+| AI趋势、产品分析、行业、技术、架构 | `tech-insight` | `xhs-neon` | `xhs-magazine` |
+| vs、对比、区别、优劣、before/after | `vs-compare` | `xhs-cubist` | `xhs-pop` |
+| 拆解、全解析、完全指南、深度 | `tech-dense` | `xhs-magazine` | `xhs-neon` |
+| 我、经历、故事、复盘、成长、感悟 | `pm-story` | `xhs-zen` | `xhs-rothko` |
+| 金句、一句话、声明、重磅 | `cover-hook` | `xhs-golden` | `xhs-deco` |
+| 概念、科普、原理、解释、SaaS | `notion-explainer` | `xhs-retro` | `xhs-loop` |
+| 观点、影评、书评、海报、声明 | `bold-poster` | `xhs-pop` | `xhs-deco` |
+| 笔记、框架、知识体系、学霸、考试 | `study-notes` | `xhs-chalk` | `xhs-magazine` |
+| 手绘、图解、可视化、示意图、workflow | `sketch-card` | `xhs-retro` | `xhs-collage` |
+| 矩阵、分类、SWOT、象限、排列组合 | `swot-matrix` | `xhs-cubist` | `xhs-loop` |
+| 知识图谱、脑图、全景、发散思维 | `concept-map` | `xhs-kandinsky` | `xhs-chalk` |
+| 深度长文、大全、收藏、体系、指南 | — | `xhs-magazine` | `xhs-golden` |
+| 踩坑、避坑、真实、我曾、教训、心酸 | — | `xhs-collage` | `xhs-zen` |
+| 一张图看懂、科普、入门、解释、小白 | — | `xhs-retro` | `xhs-chalk` |
+| 课堂、教学、老师、知识体系、全景图 | — | `xhs-chalk` | `xhs-loop` |
+| 争议、颠覆、反直觉、99%的人、大多数人 | — | `xhs-pop` | `xhs-cubist` |
+| 感悟、成长、慢、沉淀、反思、局 | — | `xhs-zen` | `xhs-rothko` |
+| 里程碑、突破、重磅、发布、成就 | — | `xhs-golden` | `xhs-deco` |
+| 情感、焦虑、内省、深层、沉浸 | — | `xhs-rothko` | `xhs-zen` |
+| 多角度、解构、复杂、多解 | — | `xhs-cubist` | `xhs-kandinsky` |
+| 递归、循环、反馈、重复、系统 | — | `xhs-loop` | `xhs-chalk` |
+| 优雅、规则、高端、品质、仪式 | — | `xhs-deco` | `xhs-golden` |
+| AI、未来、技术、极客、前沿 | — | `xhs-neon` | `xhs-magazine` |
+| 抽象、协作、多元素、概念 | — | `xhs-kandinsky` | `xhs-loop` |
 
 **混合信号时**：取第一个匹配的推荐预设。
 
