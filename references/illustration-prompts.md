@@ -354,6 +354,8 @@ Composition rules for Xiaohongshu cover (vertical 3:4, 1680×2240):
 - Chinese text large, clear, no overlap with busy visual areas
 - Bottom 10% clear (app UI safe zone, ~224px)
 - Right-top corner 120×120px clear (interaction buttons ❤ 📌)
+- Background fills entire canvas to all four edges, NO outer border, NO frame, NO floating card (use poster/海报, never "card")
+- All title/detail text within 8% padding from edges, never cut off at boundary
 - If using Art Reference: element can occupy 30-50% but must NOT compete with title
 - Vertical flow only: all information stacks top-to-bottom, never side-by-side
 ```

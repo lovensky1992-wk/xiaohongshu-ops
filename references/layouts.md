@@ -37,8 +37,13 @@
 | 右上角 | 右上 15% | 互动按钮区 |
 | 右下角 | 右下 10% | 水印位置 |
 
-**所有配图 prompt 末尾追加**：
+**所有配图 prompt 末尾追加**（安全区 + 文生图保命三条，来源 ATA 实录）：
 > Leave the bottom 10% of the image clean — no critical text or key visual elements — for mobile platform UI overlay. Avoid placing important content in the top-right corner.
+> 背景色铺满整个画布到四边，没有边框。Background fills entire canvas to all four edges. NO outer border, NO frame, NO floating card.
+> 所有文字距离图片边缘至少 8% 内边距，不溢出。All text within 8% padding from edges, never exceeding image boundary.
+> （用 poster/海报/图片 描述整图，避免用 `card` —— 模型会把 card 脑补成浮动卡片+边框阴影。）
+
+> 详细原理见 `prompts/styles/_anti-slop.md` F 节（文生图保命硬约束）。
 
 ---
 
