@@ -107,6 +107,11 @@ description: >
 2. 抽取支持/反对/中性观点各一组
 3. 输出可发文争论点(争议但可控)
 
+**可选 X/Twitter 外部信号:** 需要跨平台讨论热度时,按
+`references/x-twitter-source-signals.md` 把 TweetClaw 导出的公开 X/Twitter
+内容整理成素材包,再回到本节生成小红书选题。TweetClaw 只作为来源采集与证据整理工具,
+不负责小红书发布、互动或最终观点判断。
+
 ### §3.C 形成选题清单(每轮至少 3 条)
 
 每条选题包含:

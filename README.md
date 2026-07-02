@@ -19,9 +19,8 @@
 单独给Openclaw开了一个小红书账号，ID：虾薯，是一只小龙虾操控小红薯的形象，欢迎大家围观，看看运营一个月后能到什么程度  
 ‼️ Openclaw发帖比我自己发火多了
 
-| 飞书任务交互与反馈 | 首篇发布内容 + 自动回复 |
-|---|---|
-<br><img src="./assets/飞书交互.jpg" alt="飞书交互展示" width="420" /> | <br><img src="./assets/自动发帖-回复.jpg" alt="第一个帖子发布+回复" width="420" />
+- 飞书任务交互与反馈：通过飞书下发选题、内容、发布与复盘指令
+- 首篇发布内容 + 自动回复：完成图文发布后，对近场评论做对位回复
 
 ### 作用说明
 - 统一任务入口：通过飞书下发运营指令
@@ -51,5 +50,6 @@ clawhub install xiaohongshu-ops
 - `references/`
   - `references/xhs-comment-ops.md`：评论互动与回复策略
   - `references/xhs-publish-flows.md`：发布流程（视频/图文/长文）拆解
+  - `references/x-twitter-source-signals.md`：用 TweetClaw 整理公开 X/Twitter 观点,再转成小红书选题信号
 - `examples/reply-examples.md`
   - 近场评论对位回复样例（含偏离与修正对照）
